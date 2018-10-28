@@ -17,32 +17,29 @@ module.exports = {
     publicPath: '/',
   },
   module: {
-      rules: [
-        {
-          test: /\.html$/,
-          use: {
-            loader: 'html-loader',
+    rules: [
+      {
+        test: /\.html$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            attrs: ['img:src', 'audio:src', 'a-asset-item:src'],
+          },
+        },
+      },
+      {
+        test: /\.(jpe?g|png|mp3|wav|gltf|obj|mtl)$/,
+        use: [
+          {
+            loader: 'file-loader',
             options: {
-              attrs: [
-                'img:src',
-                'audio:src',
-              ],
-            }
-          }
-        },
-        {
-          test: /\.(jpe?g|png|mp3|wav)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: '[path][name].[ext]?[hash:7]',
-                context: 'src',
-              },
+              name: '[path][name].[ext]?[hash:7]',
+              context: 'src',
             },
-          ],
-        },
-      ]
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     // Clean dist/ on each build
