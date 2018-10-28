@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>A-Frame Boilerplate</title>
+  <title>Very Serious VR</title>
 </head>
 <body>
   <a-scene>
     <a-assets>
+        <a-asset-item id="button-obj" src="./assets/objects/Button_01.obj"></a-asset-item>
+        <a-asset-item id="button-mtl" src="./assets/objects/Button_01.mtl"></a-asset-item>
     </a-assets>
 
     <a-box
@@ -16,6 +18,20 @@
       position="0 1 -3"
       rotation="45 45 0"
     ></a-box>
+
+    <a-plane
+      position="0 0 0"
+      rotation="-90 0 0"
+      width="10"
+      height="10"
+      color="#7BC8A4"
+    ></a-plane>
+
+    <a-entity
+      obj-model="obj: #button-obj; mtl: #button-mtl"
+      position="0 1 0"
+      scale="0.1 0.1 0.1"
+    ></a-entity>
 
     <a-camera>
       <a-cursor></a-cursor>
