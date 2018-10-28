@@ -28,7 +28,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(jpe?g|png|mp3|wav|gltf|obj|mtl)$/,
+        test: /\.(jpe?g|png|mp3|wav|bin|gltf|obj|mtl)$/,
         use: [
           {
             loader: 'file-loader',
@@ -58,6 +58,7 @@ module.exports = {
   ],
   // Settings for webpack-dev-server
   devServer: {
+    host: '0.0.0.0',
     clientLogLevel: 'info',
     open: true,
   },
