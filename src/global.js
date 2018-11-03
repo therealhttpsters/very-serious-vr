@@ -5,6 +5,7 @@ require('aframe');
 require('aframe-event-set-component');
 require('aframe-layout-component');
 require('aframe-template-component');
+// require('aframe-look-at-component');
 
 // Custom components in components/
 // require('./components/foo');

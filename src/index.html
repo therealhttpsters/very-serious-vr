@@ -6,13 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Very Serious VR</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 </head>
 
 <body>
   <a-scene class="fullscreen" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
     <a-assets>
-      <a-asset-item id="button-obj" src="./assets/objects/fax.gltf"></a-asset-item>
-      <a-asset-item id="button-bin" src="./assets/objects/fax.bin"></a-asset-item>
+      <a-asset-item id="fax-gltf" src="./assets/objects/fax.gltf"></a-asset-item>
+      <a-asset-item id="fax-bin" src="./assets/objects/fax.bin"></a-asset-item>
+
+      <script id="paper" type="text/x-handlebars-template">
+        <a-box
+          class="paper"
+          height="1.1"
+          width="0.85"
+          depth="0.01"
+          color="#FFFFFF"
+          event-set__mousedown="scale: 1 1 1;"
+          event-set__mouseup="scale: 1.2 1.2 1;"
+          event-set__mouseenter="scale: 1.2 1.2 1;"
+          event-set__mouseleave="scale: 1 1 1;"
+        ></a-box>
+      </script>
     </a-assets>
 
     <a-sky
@@ -29,67 +44,28 @@
       color="#7BC8A4"
     ></a-plane>
 
-    <a-box
-      id="paper-1"
-      position="-1.050196249311199 1.6386522431439288 0"
-      rotation="0 0 0"
-      width=".85"
-      height="1.1"
-      scale="0.5 0.5 0.55"
-      depth=".01"
-      color="#ffffff"
-      material=""
-      geometry=""
-    ></a-box>
-    <a-box
-      id="paper-2"
-      position="1.459676868612292 1.5907005397904497 0"
-      rotation="0 0 0"
-      width=".85"
-      height="1.1"
-      scale="0.5 0.5 0.55"
-      depth=".01"
-      color="#ffffff"
-      material=""
-      geometry=""
-    ></a-box>
-    <a-box
-      id="paper-3"
-      position="0.234751511822744 1.6067897571960579 0"
-      rotation="0 0 0"
-      width=".85"
-      height="1.1"
-      scale="0.5 0.5 0.55"
-      depth=".01"
-      color="#ffffff"
-      material=""
-      geometry=""
-    ></a-box>
+    <a-entity id="papers" layout="type: line; margin: 2; align: center;" scale="0.5 0.5 0.55" position="0 1.5 0" look-at="#camera">
+      <a-entity template="src: #paper"></a-entity>
+      <a-entity template="src: #paper"></a-entity>
+      <a-entity template="src: #paper"></a-entity>
+    </a-entity>
 
     <a-entity
       id="entity-fax"
-      gltf-model="/assets/objects/fax.gltf?c3faab4"
-      position="0.19106798513818357 0.722745772952975 0"
-      rotation="0 -4.696121950907117 0"
+      gltf-model="#fax-gltf"
+      position="0 0.75 0"
+      rotation="0 0 0"
       scale="2.5 2.5 2.5"
     ></a-entity>
 
-    <a-camera
-      position="0 1 2"
-      rotation="0 90 0"
-      look-controls=""
-      camera=""
-      vr-mode-ui=""
-      wasd-controls=""
-      gearvr-controls=""
-      data-aframe-inspector-original-camera=""
-    >
-      <a-cursor
-        material=""
-        raycaster=""
-        cursor=""
-        geometry=""
-      ></a-cursor>
+    <!-- Camera Controls -->
+    <a-camera id="camera" position="0 1 2" rotation="0 90 0">
+      <a-cursor id="cursor">
+        <a-animation begin="click" easing="ease-in" attribute="scale"
+          fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+        <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+          from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+      </a-cursor>
     </a-camera>
   </a-scene>
 </body>
