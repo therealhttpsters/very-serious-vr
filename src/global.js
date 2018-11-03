@@ -2,6 +2,7 @@
 require('aframe');
 
 // Additional optional components
+require('aframe-animation-component');
 require('aframe-event-set-component');
 require('aframe-layout-component');
 require('aframe-template-component');
