@@ -21,11 +21,8 @@
           height="1.1"
           width="0.85"
           depth="0.01"
-          color="#FFFFFF"
-          event-set__mousedown="scale: 1 1 1;"
-          event-set__mouseup="scale: 1.2 1.2 1;"
-          event-set__mouseenter="scale: 1.2 1.2 1;"
-          event-set__mouseleave="scale: 1 1 1;"
+          color="{{ color }}"
+          animation__rotation="property: rotation; dir: alternate; dur: 1500; easing: easeInOutBack; from: 0 0 0; to: 0 360 0; startEvents: click;"
         ></a-box>
       </script>
     </a-assets>
@@ -45,15 +42,27 @@
       color="#7BC8A4"
     ></a-plane>
 
-    <a-entity id="papers" layout="type: line; margin: 2; align: center;" scale="0.5 0.5 0.55" position="0 1.5 0" look-at="#camera">
-      <a-entity template="src: #paper"></a-entity>
-      <a-entity template="src: #paper"></a-entity>
-      <a-entity template="src: #paper"></a-entity>
-    </a-entity>
-
     <a-entity
       position="0 0 -2"
     >
+      <a-entity id="papers" layout="type: line; margin: 2; align: center;" scale="0.5 0.5 0.55" position="0 1.5 0" look-at="#camera">
+        <a-entity
+          id="paper1"
+          template="src: #paper"
+          data-color="#ED7841"
+        ></a-entity>
+        <a-entity
+          id="paper2"
+          template="src: #paper"
+          data-color="#9A6CED"
+        ></a-entity>
+        <a-entity
+          id="paper3"
+          template="src: #paper"
+          data-color="#4FF35F"
+        ></a-entity>
+      </a-entity>
+
       <a-entity
         id="entity-fax"
         gltf-model="#fax-gltf"
