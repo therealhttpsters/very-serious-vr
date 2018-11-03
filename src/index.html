@@ -11,43 +11,86 @@
 <body>
   <a-scene class="fullscreen" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
     <a-assets>
-      <a-asset-item id="button-obj" src="/assets/objects/fax.gltf?c3faab4"></a-asset-item>
-      <a-asset-item id="button-bin" src="/assets/objects/fax.bin?ca2f7b3"></a-asset-item>
+      <a-asset-item id="button-obj" src="./assets/objects/fax.gltf"></a-asset-item>
+      <a-asset-item id="button-bin" src="./assets/objects/fax.bin"></a-asset-item>
     </a-assets>
 
-    <a-sky src="#sky" radius="5" material="" geometry="" color="#87CEEB"></a-sky>
+    <a-sky
+      id="skybox"
+      radius="5"
+      color="#87CEEB"
+    ></a-sky>
 
-    <a-plane position="" rotation="-90 0 0" width="10" height="10" color="#7BC8A4" material="" geometry=""></a-plane>
+    <a-plane
+      id="plane-floor"
+      rotation="-90 0 0"
+      width="10"
+      height="10"
+      color="#7BC8A4"
+    ></a-plane>
 
-    <a-box position="-1.050196249311199 1.6386522431439288 0" rotation="0 0 90" width="1.1" scale="0.5 0.5 0.55" height=".85"
-      depth=".01" color="#ffffff" material="" geometry=""></a-box>
+    <a-box
+      id="paper-1"
+      position="-1.050196249311199 1.6386522431439288 0"
+      rotation="0 0 0"
+      width=".85"
+      height="1.1"
+      scale="0.5 0.5 0.55"
+      depth=".01"
+      color="#ffffff"
+      material=""
+      geometry=""
+    ></a-box>
+    <a-box
+      id="paper-2"
+      position="1.459676868612292 1.5907005397904497 0"
+      rotation="0 0 0"
+      width=".85"
+      height="1.1"
+      scale="0.5 0.5 0.55"
+      depth=".01"
+      color="#ffffff"
+      material=""
+      geometry=""
+    ></a-box>
+    <a-box
+      id="paper-3"
+      position="0.234751511822744 1.6067897571960579 0"
+      rotation="0 0 0"
+      width=".85"
+      height="1.1"
+      scale="0.5 0.5 0.55"
+      depth=".01"
+      color="#ffffff"
+      material=""
+      geometry=""
+    ></a-box>
 
+    <a-entity
+      id="entity-fax"
+      gltf-model="/assets/objects/fax.gltf?c3faab4"
+      position="0.19106798513818357 0.722745772952975 0"
+      rotation="0 -4.696121950907117 0"
+      scale="2.5 2.5 2.5"
+    ></a-entity>
 
-    <a-box position="1.459676868612292 1.5907005397904497 0" rotation="0 0 90" width="1.1" scale="0.5 0.5 0.55" height=".85"
-      depth=".01" color="#ffffff" material="" geometry=""></a-box>
-    <a-box position="0.234751511822744 1.6067897571960579 0" rotation="0 0 90" width="1.1" scale="0.5 0.5 0.55" height=".85"
-      depth=".01" color="#ffffff" material="" geometry=""></a-box>
-
-
-
-    <a-entity gltf-model="/assets/objects/fax.gltf?c3faab4" position="0.19106798513818357 0.722745772952975 0" rotation="0 -4.696121950907117 0"
-      scale="2.5 2.5 2.5"></a-entity>
-
-      <a-entity id="cameraWrapper" position="0 0 0" rotation="0 -90 0">
-          <a-camera 
-              look-controls="" 
-              camera="" 
-              vr-mode-ui="" 
-              position="0 0 0" 
-              rotation="0 300 0" 
-              wasd-controls="" 
-              gearvr-controls=""
-              data-aframe-inspector-original-camera="">
-            <a-cursor material="" raycaster="" cursor="" geometry=""></a-cursor>
-          </a-camera>
-        </a-entity>
-        
+    <a-camera
+      position="0 1 2"
+      rotation="0 90 0"
+      look-controls=""
+      camera=""
+      vr-mode-ui=""
+      wasd-controls=""
+      gearvr-controls=""
+      data-aframe-inspector-original-camera=""
+    >
+      <a-cursor
+        material=""
+        raycaster=""
+        cursor=""
+        geometry=""
+      ></a-cursor>
+    </a-camera>
   </a-scene>
 </body>
-
 </html>
