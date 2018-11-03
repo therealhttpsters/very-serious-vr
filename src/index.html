@@ -23,7 +23,15 @@
           depth="0.01"
           color="{{ color }}"
           animation__rotation="property: rotation; dir: alternate; dur: 1500; easing: easeInOutBack; from: 0 0 0; to: 0 360 0; startEvents: click;"
-        ></a-box>
+        >
+          <a-text
+            value="{{ text }}"
+            font="mozillavr"
+            color="white"
+            position="0 0 0.02"
+            text="align: center"
+          ></a-text>
+        </a-box>
       </script>
     </a-assets>
 
@@ -50,18 +58,21 @@
           id="paper1"
           template="src: #paper"
           data-color="#ED7841"
+          data-text="google"
           make-request="method: GET; url: https://google.com; throttle: 5000;"
         ></a-entity>
         <a-entity
           id="paper2"
           template="src: #paper"
           data-color="#9A6CED"
+          data-text="bing"
           make-request="method: GET; url: https://bing.com; throttle: 5000;"
         ></a-entity>
         <a-entity
           id="paper3"
           template="src: #paper"
           data-color="#4FF35F"
+          data-text="yahoo"
           make-request="method: GET; url: https://yahoo.com; throttle: 5000;"
         ></a-entity>
       </a-entity>
