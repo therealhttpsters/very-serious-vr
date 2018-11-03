@@ -17,6 +17,11 @@ AFRAME.registerComponent('make-request', {
         // Do something
         console.log(this.data.method, this.data.url);
 
+        // fetch(this.data.url, {
+        //   method: this.data.method,
+        // }).then((resp) => {
+        // });
+
         // Allow clicks after a short timeout
         setTimeout(() => {
           console.log('resetting clicked status for', this.el.id);
