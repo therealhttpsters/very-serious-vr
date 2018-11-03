@@ -34,6 +34,7 @@
       id="skybox"
       radius="5"
       color="#87CEEB"
+      material="shader:standard"
     ></a-sky>
 
     <a-plane
@@ -72,6 +73,13 @@
           from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
       </a-cursor>
     </a-camera>
+
+    <a-entity
+      id="spot"
+      light="type:spot; intensity:0.7"
+      rotation="-90 0 0"
+      position="0 5.5 0"
+    ></a-entity>
   </a-scene>
 </body>
 </html>
